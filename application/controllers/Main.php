@@ -11,23 +11,15 @@ class Main extends CI_Controller {
 
     public function index()
     {
-        $grade = '';
-        for($i=1;$i<=10;$i++){
-            $grade .= "'" . $i . "':'" . $i . "등급',";
-        }
-
-        $data = array(
-            'grade' => $grade
-        );
-
         $sessionArr = Get_AdminSe_Data($this);
         $sessionArr['islogin'] ? $uid=$sessionArr['uid'] : $uid = 0;
         $hearder_Data = array(
-            'grade' => Load_Grade($this,$uid)
+            'grade' => 1
         );
 
+
         $this->load->view(CMS_VIEW_ROOT.'include/header_View.php',$hearder_Data);
-        $this->load->view(CMS_VIEW_ROOT.'blank_View',$data);
+        $this->load->view(CMS_VIEW_ROOT.'blank_View');
         $this->load->view(CMS_VIEW_ROOT.'include/footer_View.php');
     }
 

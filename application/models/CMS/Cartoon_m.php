@@ -124,7 +124,7 @@ class Cartoon_m extends CI_Model {
         return $Query->result_array();
     }
 
-     public function Data_Load($typ,$tstr,$start, $limit, $sidx, $sord,$searchString,$searchField,$searchOper){
+    public function Data_Load($typ,$tstr,$start, $limit, $sidx, $sord,$searchString,$searchField,$searchOper){
         if($searchString!=''){
             if($searchOper=='eq'){
                 $sql = "SELECT * FROM tbl_cartoon where ".$searchField."=? ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
@@ -142,7 +142,60 @@ class Cartoon_m extends CI_Model {
             $query = $this->db->query($sql);
         }
         return $query;
-     }
+    }
+
+
+    public function Sub_Data_Load($pcode,$start, $limit, $sidx, $sord,$searchString,$searchField,$searchOper){
+        $sql = "SELECT * FROM tbl_Sub_Cartoon a where pcode=? ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+        $query = $this->db->query($sql,$pcode);
+        return $query;
+    }
+
+
+    public function Sub_all_count($pcode){
+        $sql = 'select sn from tbl_Sub_Cartoon where pcode=?';
+        $query = $this->db->query($sql,$pcode);
+        if (!empty($query)) {
+            return $query->num_rows();
+        } else {
+            return false;
+        }
+    }
+
+    public function new_all_count(){
+        $sql = 'select a.code from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1';
+        $query = $this->db->query($sql);
+        if (!empty($query)) {
+            return $query->num_rows();
+        } else {
+            return false;
+        }
+    }
+
+
+
+    public function New_Data_Load($typ,$tstr,$start, $limit, $sidx, $sord,$searchString,$searchField,$searchOper){
+        // if($searchString!=''){
+        //     if($searchOper=='eq'){
+        //         $sql = "SELECT * FROM tbl_cartoon where ".$searchField."=? ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+        //         $query = $this->db->query($sql,$searchString);
+        //     }
+        // }else{
+        //     if($typ==0) {
+        //         $sql = "SELECT * FROM tbl_cartoon a ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+        //     }else if($typ==1) {
+        //         $sql = "SELECT a.* FROM tbl_cartoon a,tbl_writer b where a.writer1=b.code and a.title like '%".$tstr."%' ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+        //     }else if($typ==2) {
+        //         $sql = "SELECT a.* FROM tbl_cartoon a,tbl_writer b where a.writer1=b.code and b.wname like '%".$tstr."%' ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+        //     }
+
+        //     $query = $this->db->query($sql);
+        // }
+        $sql = 'select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1';
+        $query = $this->db->query($sql);
+        return $query;
+    }
+
 
     public function Data_Load2($wid,$typ,$tstr,$start, $limit, $sidx, $sord,$searchString,$searchField,$searchOper){
         if($searchString!=''){
@@ -331,10 +384,8 @@ class Cartoon_m extends CI_Model {
     }
 
     function Load_Cartoon($pcode){
-        $data = array(
-            'code' => $pcode
-        );
-        $Query = $this->db->get_where('tbl_cartoon',$data);
+        $sql ='select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and a.code=? and b.isAllow=1;';
+        $Query = $this->db->query($sql,$pcode);
         return $Query->result_array();
     }
 

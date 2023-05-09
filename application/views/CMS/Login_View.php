@@ -62,7 +62,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="center"><button type="submit"  style="width:440px;height:60px;background:url(/assets/img/n_btn-ok.jpg) 0 0 no-repeat;border: 0;color:#FFFFFF;font-size: 19px;">관리자 로그인</button></td>
+                                            <td align="center"><button type="submit"  style="width:440px;height:60px;background:url(/assets/img/n_btn-ok.jpg) 0 0 no-repeat;border: 0;color:#FFFFFF;font-size: 19px;">로그인</button></td>
                                         </tr>
 
                                         <tr>

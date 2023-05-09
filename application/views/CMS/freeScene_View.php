@@ -14,8 +14,14 @@
 </head>
 <style>
     body {
-        padding:0px;
-        margin:0px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    body > * {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     img { display: block; border: 0;vertical-align: bottom;};

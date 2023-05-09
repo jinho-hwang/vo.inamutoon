@@ -14,18 +14,26 @@
 </head>
 <style>
     body {
-        padding:0px;
-        margin:0px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    body > * {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     img { display: block; border: 0;vertical-align: bottom;};
 </style>
 
 <body>
+    <br><br>
     <table cellpadding="0" cellspacing="0">
     <?foreach($data as $d){?>
-    <tr><td><img src="<?echo(CONTENT_ROOT);?>/assets/data/cartoon_scene2/mobile/<?echo($d['imgname']);?>" width="720" alt=""/></td></tr>
+    <tr><td><?echo(CONTENT_ROOT);?>/assets/data/cartoon_scene2/mobile/<?echo($d['imgname']);?></td></tr>
     <?}?>
     </table>
+    <br><br>
 </body>
 </html>

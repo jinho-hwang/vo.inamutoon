@@ -8,6 +8,35 @@ class Member_m extends CI_Model {
         $this->load->database();
     }
 
+    public function AMember_Data($param)
+    {
+        $sql = 'SELECT * from tbl_Extra_member where userid= ? and passwd =?';
+        $Query = $this->db->query($sql,array($param['uid'],$param['pwd']));
+        return $Query->result_array();
+    }
+
+    function AInsert_Log($uid,$Log){
+        $data = array(
+            'uid' => $uid,
+            'Log' => $Log
+        );
+
+        $this->db->trans_start();
+        $this->db->insert('tbl_Extra_Log',$data);
+        $insert_id = $this->db->insert_id();
+
+        $result = $this->db->trans_complete();
+        if($result === true){
+            $this->db->trans_commit();
+        }else{
+            $this->db->trans_rollback();
+        }
+
+        return $insert_id;
+    }
+
+
+
     function Load_All(){
         $Query = $this->db->get('tbl_member');
         return $Query->result_array();

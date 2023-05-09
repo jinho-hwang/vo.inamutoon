@@ -89,13 +89,13 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 //$base_url .= "://" . $_SERVER['HTTP_HOST'];
 //$base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
-$base_url = 'http://admin.inamutoon.com/';
+$base_url = 'http://vo.inamutoon.com/';
 
-define('C_TITLE','아이나무툰_관리자');
+define('C_TITLE','아이나무툰_두비덥');
 define('BASE_URL',$base_url);
 define('ROOT_URL',$base_url);
 define('SHOP_ROOT_URL',$base_url.'Shop/');
-define('WEB_URL','http://admin.inamutoon.com');
+define('WEB_URL','http://vo.inamutoon.com');
 define('CMS_ROOT',$base_url.'/');
 define('CMS_VIEW_ROOT','/CMS/');
 define('CMS_MODEL_ROOT','/CMS/');

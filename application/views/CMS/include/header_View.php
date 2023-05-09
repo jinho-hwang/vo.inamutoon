@@ -94,21 +94,12 @@
             <div class="navbar-default sidebar" role="navigation" style="margin-top: 50px;">
                 <div class="sidebar-nav navbar-collapse" >
                     <ul class="nav" id="side-menu" >
-                    <?foreach($grade as $d){?>
-                        <?if($d['mbool']==1){?>
                         <li>
-                            <a href="javascript://"><?echo($d['label']);?><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                            <?foreach($d['item'] as $c){?>
-                                <li>
-                                    <a href="<?echo($c['surl']);?>"><?echo($c['slable']);?></a>
-                                </li>
-                            <?}?>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="javascript://"><span style="color:white;size:14;">안녕하세요 두비덥님</span></a>
                         </li>
-                        <?}?>
-                    <?}?>
+                        <li>
+                            <a href="<?echo(ROOT_URL);?>Cartoon">작품 List</a>
+                        </li>
                         <li>
                             <a href="<?echo(ROOT_URL);?>Login/Logout">로그아웃</a>
                         </li>

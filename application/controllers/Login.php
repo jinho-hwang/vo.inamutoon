@@ -27,8 +27,8 @@ class Login extends CI_Controller {
         if(empty($P_Value)){
             $result = false;
         }else{
-            $this->load->model(CMS_MODEL_ROOT.'/AMember_m');
-            $Rs = $this->AMember_m->AMember_Data($P_Value);
+            $this->load->model(CMS_MODEL_ROOT.'/Member_m');
+            $Rs = $this->Member_m->AMember_Data($P_Value);
             if(ArrayCount($Rs) <=0){
                 $result = false;
             }else{
