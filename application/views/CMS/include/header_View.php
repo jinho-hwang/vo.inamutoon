@@ -95,7 +95,7 @@
                 <div class="sidebar-nav navbar-collapse" >
                     <ul class="nav" id="side-menu" >
                         <li>
-                            <a href="javascript://"><span style="color:white;size:14;">안녕하세요 두비덥님</span></a>
+                            <a href="javascript://"><span style="color:white;size:14;">안녕하세요 DOBEDUB 님</span></a>
                         </li>
                         <li>
                             <a href="<?echo(ROOT_URL);?>Cartoon">작품 List</a>

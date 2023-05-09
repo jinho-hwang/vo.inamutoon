@@ -91,7 +91,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 $base_url = 'http://vo.inamutoon.com/';
 
-define('C_TITLE','아이나무툰_두비덥');
+define('C_TITLE','아이나무툰');
 define('BASE_URL',$base_url);
 define('ROOT_URL',$base_url);
 define('SHOP_ROOT_URL',$base_url.'Shop/');
