@@ -15,7 +15,7 @@
                 {name:'title',index:'title', width:500,align: 'center', editable: true,search: false,editrules: {required: true}},
                 {name: 'scene', index: 'scene', align: 'center', sortable: false, editable: false, edittype: 'text',search: false, formatter: formatOpt1}
             ],
-            rowNum: 20,
+            rowNum: 60,
             rowList: [20, 40, 60],
             pager: 'pager',
             toppager: true,
