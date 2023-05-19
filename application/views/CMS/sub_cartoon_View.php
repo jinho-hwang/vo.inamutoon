@@ -16,9 +16,9 @@
                 {name: 'scene', index: 'scene', align: 'center', width:80,sortable: false, editable: false, edittype: 'text',search: false, formatter: formatOpt1},
                 {name: 'scene', index: 'scene', align: 'center', width:80,sortable: false, editable: false, edittype: 'text',search: false, formatter: formatOpt2}
             ],
-            rowNum: 60,
+            rowNum: 200,
             rowTotal: 10000,
-            rowList: [20, 40, 60],
+            rowList: [20, 40, 60,200],
             pager: 'pager',
             toppager: true,
             cloneToTop: true,
