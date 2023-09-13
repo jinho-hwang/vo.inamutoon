@@ -175,23 +175,20 @@ class Cartoon_m extends CI_Model {
 
 
     public function New_Data_Load($typ,$tstr,$start, $limit, $sidx, $sord,$searchString,$searchField,$searchOper){
-        // if($searchString!=''){
-        //     if($searchOper=='eq'){
-        //         $sql = "SELECT * FROM tbl_cartoon where ".$searchField."=? ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
-        //         $query = $this->db->query($sql,$searchString);
-        //     }
-        // }else{
-        //     if($typ==0) {
-        //         $sql = "SELECT * FROM tbl_cartoon a ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
-        //     }else if($typ==1) {
-        //         $sql = "SELECT a.* FROM tbl_cartoon a,tbl_writer b where a.writer1=b.code and a.title like '%".$tstr."%' ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
-        //     }else if($typ==2) {
-        //         $sql = "SELECT a.* FROM tbl_cartoon a,tbl_writer b where a.writer1=b.code and b.wname like '%".$tstr."%' ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
-        //     }
-
-        //     $query = $this->db->query($sql);
-        // }
-        $sql = 'select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1';
+        if($searchString!=''){
+            if($searchOper=='eq'){
+                $sql = "select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1 and ".$searchField."=? ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+                $query = $this->db->query($sql,$searchString);
+            }
+        }else{
+            if($tstr!=''){
+                $sql = "select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1 and a.title like '%".$tstr."%' ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+            }else{
+                $sql = "select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1  ORDER BY " . $sidx . " " . $sord . " LIMIT " . $start . ", " . $limit;
+            }
+                $query = $this->db->query($sql);
+        }
+        //$sql = 'select a.* from tbl_cartoon a,tbl_Cartoon_Voice b where a.code=b.pcode and b.isAllow=1 order by sn desc';
         $query = $this->db->query($sql);
         return $query;
     }

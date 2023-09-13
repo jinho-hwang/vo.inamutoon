@@ -10,12 +10,12 @@
             colNames:['code','썸네일','제목','회차'],
             height: 250,
             colModel:[
-                {name:'code',index:'code', width:100,align: 'center', sorttype: 'int', editable: false,search: false, editoptions:{readonly:true, size: 10}},
-                {name: 'image', index: 'image',width:60, align: 'center', sortable: false, editable: false, edittype: 'image',search: false, editoptions: {src: '', dataInit: function(domElem) {$(domElem).addClass('thmb_img')}}, search: false, formatter: imgFormat},
+                {name:'code',index:'code', width:30,align: 'center', sorttype: 'int', editable: false,search: false, editoptions:{readonly:true, size: 10}},
+                {name: 'image', index: 'image',width:30, align: 'center', sortable: false, editable: false, edittype: 'image',search: false, editoptions: {src: '', dataInit: function(domElem) {$(domElem).addClass('thmb_img')}}, search: false, formatter: imgFormat},
                 {name:'title',index:'title', width:500,align: 'center', editable: true,search: false,editrules: {required: true}},
                 {name: 'scene', index: 'scene', align: 'center', sortable: false, editable: false, edittype: 'text',search: false, formatter: formatOpt1}
             ],
-            rowNum: 60,
+            rowNum: 20,
             rowList: [20, 40, 60],
             pager: 'pager',
             toppager: true,
@@ -74,6 +74,23 @@
 
 
 </script>
+<script>
+     $(document).ready(function() {
+         $('#search').click(function () {
+            if($.trim($('#tstr').val()) == ''){
+                 alert("검색어를 입력하세요.");
+            }else{
+                 $("#fsearch").submit();
+            }
+         });
+
+         $('#dataini').click(function () {
+             $('#typ').val('');
+             $('#tstr').val('');
+             $(location).attr('href',"<?echo(ROOT_URL);?>Cartoon");
+         });
+     })
+ </script>
 <style>
     .table-responsive {
         overflow-x: visible;
@@ -83,6 +100,21 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">작품 관리</h1>
+                <div class="form-group">
+                    <table>
+                        <tr>
+                            <form name="fsearch" id="fsearch" method="post" action="<?echo(ROOT_URL);?>/Cartoon">
+                                <td>제목</td>
+                                <td width="20" align="center">&nbsp;</td>
+                                <td>
+                                    <input type="text" id="tstr" name="tstr" value="<?echo($tstr);?>" />
+                                </td>
+                                <td width="100" align="center"><button id="search" class="btn btn-default">검 색</button></td>
+                                <td width="100" align="center"><button id="dataini" class="btn btn-default">초기화</button></td>
+                            </form>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <!-- /.col-lg-12 -->
         </div>

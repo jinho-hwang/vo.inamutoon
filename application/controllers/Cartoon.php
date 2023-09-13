@@ -41,7 +41,7 @@ class Cartoon extends CI_Controller {
     
     public function Data_Load(){
 
-        $typ = ($this->input->post('typ')) ? $this->input->post('typ') : 0;
+        $typ = ($this->input->post('typ')) ? $this->input->post('typ') : 1;
         $tstr = ($this->input->post('tstr')) ? $this->input->post('tstr') : '';
 
         $page = ($this->input->post('page')) ? $this->input->post('page') : 1;
@@ -75,7 +75,7 @@ class Cartoon extends CI_Controller {
                     $row->code, $row->imgname, $row->title,$row->code
                 );
                 $i++;
-            }
+            }   
         }
         
 
